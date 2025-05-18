@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "f1c437bb9233ef24",
+    "type": "split",
+    "children": [
+      {
+        "id": "77c0c53e3aac244a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "18dce039736c412d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Distributed Computing/999. Questions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "999. Questions"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "63f08e87d268ffd0",
+    "type": "split",
+    "children": [
+      {
+        "id": "5908234e0e0fc572",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2c6475112e178908",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3af1698b05b5efdf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "90478d33a7822b41",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "ba8024885bc8eb70",
+    "type": "split",
+    "children": [
+      {
+        "id": "2a605581b5313e31",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cfce66b7174c683c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Distributed Computing/07. Transaction.md",
+                "collapseAll": true,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": true,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 07. Transaction"
+            }
+          },
+          {
+            "id": "6749eb36e42e2566",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Object Oriented Analysis And Design/Design_patterns/Behavioral_patterns.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Behavioral_patterns"
+            }
+          },
+          {
+            "id": "1321b3b9259127bf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "bd08a69c9ac97e62",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Object Oriented Analysis And Design/Design_patterns/Behavioral_patterns.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Behavioral_patterns"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "18dce039736c412d",
+  "lastOpenFiles": [
+    "Distributed Computing/105. Zookeeper.md",
+    "Distributed Computing/104. Raft.md",
+    "Distributed Computing/01. Intro.md",
+    "Distributed Computing/102. GFS.md",
+    "Distributed Computing/101. MapReduce.md",
+    "Distributed Computing/06. Replication.md",
+    "Distributed Computing/07. Transaction.md",
+    "Distributed Computing/08. Security.md",
+    "Distributed Computing/103. VMWare-FT.md",
+    "Distributed Computing/106. Memcash.md",
+    "Distributed Computing/107. Bitcoin.md",
+    "Distributed Computing/02. Charasteristics.md",
+    "Distributed Computing/03. Communication.md",
+    "Distributed Computing/04. File and Name Services.md",
+    "Distributed Computing/999. Questions.md",
+    "Pasted image 20250518104432.png",
+    "Pasted image 20250518104428.png",
+    "Distributed Computing/Distributed Guide.md",
+    "Pasted image 20250518095754.png",
+    "Pasted image 20250518095609.png",
+    "Pasted image 20250518090820.png",
+    "explained.png",
+    "Distributed Computing.7z",
+    "Distributed Computing/Q & A.md",
+    "Distributed Computing/05. Clock Time.md",
+    "Distributed Computing/Untitled",
+    "Untitled.canvas",
+    "2025-05-17.md",
+    "Pasted image 20250515205957.png",
+    "Next.md",
+    "Advance Netwroking/Bluetooth_additonal.md",
+    "Advance Netwroking/Guide.md",
+    "Advance Netwroking/Introduction to Advanced Networking.md",
+    "Pasted image 20250516065452.png",
+    "Pasted image 20250516064409.png",
+    "Pasted image 20250516064254.png",
+    "Computer Vision/_6_SVM.md",
+    "Computer Vision/_5_K-MeansAlgorithm.md",
+    "Distributed Computing.zip",
+    "Distributed Computing",
+    "Untitled 1.canvas",
+    "Computer Vision",
+    "Software_Engineering",
+    "Object Oriented Analysis And Design/UML",
+    "Object Oriented Analysis And Design/OOP",
+    "Object Oriented Analysis And Design/OOAD",
+    "Object Oriented Analysis And Design/Design_patterns"
+  ]
+}
