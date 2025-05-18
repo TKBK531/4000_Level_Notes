@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Distributed Computing/Q & A.md",
+                "file": "Distributed Computing/999. Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Q & A"
+              "title": "999. Questions"
             }
           }
         ]
@@ -163,18 +163,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "18dce039736c412d",
+  "active": "2c6475112e178908",
   "lastOpenFiles": [
+    "Distributed Computing/106. Memcash.md",
+    "Distributed Computing/105. Zookeeper.md",
+    "Distributed Computing/Q & A.md",
+    "Distributed Computing/999. Questions.md",
+    "Untitled.canvas",
     "Distributed Computing/06. Replication.md",
     "Distributed Computing/104. Raft.md",
-    "Distributed Computing/105. Zookeeper.md",
     "Distributed Computing/107. Bitcoin.md",
     "Distributed Computing/101. MapReduce.md",
     "Distributed Computing/103. VMWare-FT.md",
     "Distributed Computing/102. GFS.md",
-    "Distributed Computing/106. Memcash.md",
     "explained.png",
-    "Distributed Computing/999. Questions.md",
     "Distributed Computing/07. Transaction.md",
     "Computer Vision/_5_K-MeansAlgorithm.md",
     "Computer Vision/_6_SVM.md",
@@ -195,10 +197,8 @@
     "Pasted image 20250518095609.png",
     "Pasted image 20250518090820.png",
     "Distributed Computing.7z",
-    "Distributed Computing/Q & A.md",
     "Distributed Computing/05. Clock Time.md",
     "Distributed Computing/Untitled",
-    "Untitled.canvas",
     "Pasted image 20250515205957.png",
     "Pasted image 20250516065452.png",
     "Pasted image 20250516064409.png",

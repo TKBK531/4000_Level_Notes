@@ -934,3 +934,92 @@ In a gossip-based replication system, updates to data are propagated between rep
 - Minimizing the size and complexity of vector timestamps
 
 This is especially effective when the system has many more reads than writes.
+
+
+-----------------------------------
+### *Q: Give an example of the interleavings of two transactions that are serially equivalent at each server but are not serially equivalent globally. Explain.*
+
+---
+
+## **Key Concepts**
+
+- **Serial equivalence at a server:** At a given server (or object), the operations of the transactions occur in a serial order (all of T’s accesses to that object before U’s, or vice versa).
+- **Global serial equivalence:** Across all objects/servers involved, the overall effect is the same as if the transactions were executed one after the other, in some global order.
+
+**The problem:**  
+It is possible for the transactions to be serialized at each object, but the overall (global) execution is not serially equivalent.
+
+---
+
+## **Example with Explanation**
+
+## **Transactions**
+
+- **T:**
+    1. x = read(i)
+    2. write(i, 10)
+    3. write(j, 20)
+- **U:**
+    1. y = read(j)
+    2. write(j, 30)
+    3. z = read(i)
+
+## **Interleaving**
+
+Let’s interleave the operations as follows:
+
+|Step|Operation|Object|
+|---|---|---|
+|1|T: read(i)|i|
+|2|T: write(i, 10)|i|
+|3|U: read(j)|j|
+|4|U: write(j, 30)|j|
+|5|T: write(j, 20)|j|
+|6|U: read(i)|i|
+
+## **At each object/server:**
+- **At i:** T does all its accesses (read, write) before U (read).
+- **At j:** U does all its accesses (read, write) before T (write).
+    
+So, **at each server**, accesses are serialized:
+- At i: T before U
+- At j: U before T
+## **Globally:**
+
+But **globally**, there is no single serial order (T before U or U before T) that matches this interleaving:
+- If T were before U globally, then at both i and j, T should come before U.
+- If U were before T globally, then at both i and j, U should come before T.
+
+But here, at i, T comes before U, and at j, U comes before T!  
+**This cannot be achieved by any serial execution of T and U.**
+
+---
+
+## **Why is this Not Globally Serially Equivalent?**
+
+- **Serial equivalence requires** that for any two transactions, all their conflicting operations must be ordered the same way at every object they both access.
+- In this interleaving, the order is inconsistent across objects:
+    - At i: T before U
+    - At j: U before T
+
+So, **no global serial order** of T and U matches this interleaving.
+
+---
+
+## **Summary Table**
+
+|Object|Order of Accesses|
+|---|---|
+|i|T → U|
+|j|U → T|
+
+**No serial order (T→U or U→T) matches both.**
+
+---
+
+## **Conclusion**
+
+This example shows that **serial equivalence at each server does not guarantee global serial equivalence**.  
+The interleaving above is **not globally serially equivalent** because the order of conflicting operations is not consistent across all objects.
+
+
