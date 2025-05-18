@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Distributed Computing/999. Questions.md",
+                "file": "Distributed Computing/106. Memcash.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "999. Questions"
+              "title": "106. Memcash"
             }
           }
         ]
@@ -163,12 +163,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2c6475112e178908",
+  "active": "18dce039736c412d",
   "lastOpenFiles": [
+    "Distributed Computing/999. Questions.md",
+    "Distributed Computing/08. Security.md",
+    "Distributed Computing/07. Transaction.md",
     "Distributed Computing/106. Memcash.md",
     "Distributed Computing/105. Zookeeper.md",
     "Distributed Computing/Q & A.md",
-    "Distributed Computing/999. Questions.md",
     "Untitled.canvas",
     "Distributed Computing/06. Replication.md",
     "Distributed Computing/104. Raft.md",
@@ -177,7 +179,6 @@
     "Distributed Computing/103. VMWare-FT.md",
     "Distributed Computing/102. GFS.md",
     "explained.png",
-    "Distributed Computing/07. Transaction.md",
     "Computer Vision/_5_K-MeansAlgorithm.md",
     "Computer Vision/_6_SVM.md",
     "Computer Vision/_4_SIFT.md",
@@ -186,7 +187,6 @@
     "Computer Vision/2. Applications in CV.md",
     "Computer Vision/1. Introduction to CV.md",
     "Distributed Computing/01. Intro.md",
-    "Distributed Computing/08. Security.md",
     "Distributed Computing/02. Charasteristics.md",
     "Distributed Computing/03. Communication.md",
     "Distributed Computing/04. File and Name Services.md",
