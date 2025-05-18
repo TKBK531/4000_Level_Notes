@@ -840,3 +840,97 @@ It can block other transactions indefinitely, potentially leading to reduced con
 - **Vector Timestamp**: A tuple used to capture causal relationships and consistency.
     
 - **Passive vs Active Replication**: Differ in how client requests are processed and how fault tolerance is achieved.
+
+
+
+
+## **Replication Scenario**
+
+- **Object o** is being replicated (there are multiple copies of o, each on a different server).
+- **Object o’** is **not** replicated (there is only one copy of o’).
+- **Operation X** on o causes o to invoke an operation on o’.
+
+---
+
+### **The Difficulty**
+
+When you replicate o but not o’, and an operation X on o causes o to invoke o’, the following problem arises:
+- **All replicas of o** (let’s say there are N of them) will each independently execute operation X.
+- As a result, **each replica will independently invoke the operation on o’**.
+- This means that for a single client request, **o’ will receive N invocations** instead of just one.
+
+### **Why is this a problem?**
+
+- If the operation on o’ is **not idempotent** (i.e., repeating it causes different effects, such as incrementing a counter or charging a credit card), this will lead to **incorrect behavior** (e.g., the counter is incremented N times, or the credit card is charged N times).
+- Even if the operation is idempotent, this is **inefficient** and may cause unnecessary load or side effects.
+
+---
+
+### **Suggested Solution**
+
+To prevent multiple invocations on o’, you need to ensure that **only one replica of o actually performs the invocation on o’** for each client request.
+
+### **How can this be done?**
+
+- **Smart, replication-aware proxies** are introduced between o and o’.
+- When operation X is to be performed:
+    1. The proxies (one per replica of o) **coordinate using a consensus algorithm** (e.g., leader election, distributed locking, or unique invocation ID assignment).
+    2. **Only one proxy** is chosen to actually forward the invocation to o’.
+    3. The chosen proxy performs the operation on o’ and **multicasts the result** to the other proxies/replicas.
+    4. The other proxies/replicas **wait for the result** and use it as their own response.
+
+This ensures that:
+- **Only one invocation** is made to o’ per client request.
+- **All replicas of o** see the same result, maintaining consistency.
+
+
+## **Why making some replica managers read-only may improve the performance of a gossip system**
+
+### **Background: Gossip System**
+
+In a gossip-based replication system, updates to data are propagated between replica managers (RMs) in a peer-to-peer, epidemic fashion. Each RM keeps track of which updates it has seen and applied, often using vector timestamps. In a typical system, RMs can handle both reads and writes.
+
+---
+
+### **Improvement 1: Efficient Handling of Read Operations**
+
+- **Read-only replica managers** can serve read requests locally, without needing to process or propagate updates.
+- If the workload has **many more reads than writes** (which is common in web services, databases, etc.), having dedicated read-only RMs allows these read requests to be handled quickly and efficiently, reducing the load on full (read-write) RMs.
+- **Result:** Improved overall system throughput and lower latency for read operations.
+
+---
+
+### **Improvement 2: Reduced Update Propagation Overhead**
+- **Read-only RMs do not participate in update propagation.**
+- Only a subset of RMs (the read-write ones) need to process and gossip about updates.
+- This means **fewer nodes are involved in update dissemination**, reducing network traffic and processing overhead for updates.
+
+---
+
+### **Improvement 3: Smaller Vector Timestamps**
+- In gossip systems, each RM often maintains a **vector timestamp** to track the state of updates across all RMs.
+- **Read-only RMs do not accept updates**, so they **do not need entries in the vector timestamp**.
+- With fewer RMs involved in updates, the **vector timestamp size is reduced**, leading to:
+    - Lower metadata overhead in messages
+    - Less memory usage
+    - Simpler update tracking and conflict resolution
+
+---
+
+### **Summary Table**
+
+|Benefit|Explanation|
+|---|---|
+|Faster reads|Read-only RMs can serve local reads instantly|
+|Less update overhead|Updates are processed by fewer RMs, reducing network and CPU load|
+|Smaller timestamps|Vector timestamps only track RMs that accept updates, so are shorter/simpler|
+
+---
+
+### **In Short**
+**Making some replica managers read-only in a gossip system improves performance by:**
+- Allowing fast, local handling of read requests
+- Reducing the number of nodes involved in update propagation
+- Minimizing the size and complexity of vector timestamps
+
+This is especially effective when the system has many more reads than writes.
