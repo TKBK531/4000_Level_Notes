@@ -253,9 +253,7 @@ However, **SIFT is not fully invariant to major viewpoint changes** (e.g., large
 So, when no clear hyperplane exists, SVM adapts by either **allowing some errors** (soft margin) or **transforming the feature space** (kernel trick) to find a better separating boundary.
 
 #### The picture below shows some original data points. In 1-dimensional, this data is not linearly separable. Explain how, after applying the transformation ϕ(x) = x² and adding this second dimension to our feature space, the classes become linearly separable.
-
-![[Pasted image 20250522164031.png]]
-
+![[Pasted image 20250522183458.png]]
 #### b) What is this approach called in SVM?
 
 - Lifting’ of the data points represents the mapping of data into a higher dimension. This is known as kernelling.

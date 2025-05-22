@@ -70,16 +70,18 @@
 
 
 
-#### Use of distance as a similarity measure
+#### Discuss the major challenges associated with selecting a clustering algorithm and elaborate on the use of distance as a pair-wise similarity measure. 
 
-- **City Block (Manhattan)**: L1 norm; sums absolute differences.
-    
-- **Euclidean**: L2 norm; suitable for convex clusters.
-    
-- **Cosine**: Measures orientation, not magnitude.
-    
-- Distance determines how similar points are; affects clustering structure heavily.
-    
+Distance measures quantify how similar or dissimilar two data points are:
+- **Euclidean Distance**: Most common; suitable for continuous, normalized data.
+- **Manhattan Distance**: Useful when movement is restricted to grid-like paths.
+- **Cosine Similarity**: Often used in text data; measures angle between vectors rather than magnitude.
+- **Mahalanobis Distance**: Takes data distribution into account.
+
+**Challenges with Distance Measures**:
+- Choice of distance metric affects clustering results.
+- Requires feature scaling.
+- May lose meaning in high dimensions.
 
 ---
 
