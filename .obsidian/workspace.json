@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "18dce039736c412d",
+            "id": "4a4409a632d2abc1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Vision/PastPaperQuestions.md",
+                "file": "Computer Vision/ShortQuestions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PastPaperQuestions"
+              "title": "ShortQuestions"
             }
           }
         ]
@@ -163,14 +163,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "18dce039736c412d",
+  "active": "4a4409a632d2abc1",
   "lastOpenFiles": [
+    "Computer Vision/Sample Paper.md",
+    "Computer Vision/ShortQuestions.md",
+    "Computer Vision/Guide.md",
+    "Computer Vision/Complete List of Unique Questions from Provided Ex.md",
+    "Computer Vision/Scenarios.md",
+    "Computer Vision/PastPaperQuestions.md",
+    "Pasted image 20250522090842.png",
+    "Pasted image 20250522085825.png",
     "Computer Vision/_6_SVM.md",
     "Computer Vision/_5_K-MeansAlgorithm.md",
     "Computer Vision/_4_SIFT.md",
     "Computer Vision/_2_HybridImages.md",
     "Computer Vision/_1_SkinDetection.md",
-    "Computer Vision/PastPaperQuestions.md",
     "Computer Vision/Harris Corner Detection.md",
     "Computer Vision/1. Introduction to CV.md",
     "Distributed Computing/107. Bitcoin.md",
@@ -186,12 +193,7 @@
     "Distributed Computing/05. Clock Time.md",
     "Distributed Computing/Q & A.md",
     "Distributed Computing/04. File and Name Services.md",
-    "Distributed Computing/02. Charasteristics.md",
-    "Distributed Computing/01. Intro.md",
     "Untitled.canvas",
-    "Distributed Computing/101. MapReduce.md",
-    "Distributed Computing/103. VMWare-FT.md",
-    "Distributed Computing/102. GFS.md",
     "explained.png",
     "Pasted image 20250518104432.png",
     "Pasted image 20250518104428.png",
@@ -202,8 +204,6 @@
     "Distributed Computing/Untitled",
     "Pasted image 20250515205957.png",
     "Pasted image 20250516065452.png",
-    "Pasted image 20250516064409.png",
-    "Pasted image 20250516064254.png",
     "Distributed Computing.zip",
     "Distributed Computing",
     "Untitled 1.canvas",
