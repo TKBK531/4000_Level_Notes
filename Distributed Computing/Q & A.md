@@ -1023,3 +1023,6 @@ This example shows that **serial equivalence at each server does not guarantee 
 The interleaving above is **not globally serially equivalent** because the order of conflicting operations is not consistent across all objects.
 
 
+
+
+

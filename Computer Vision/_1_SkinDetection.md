@@ -1,20 +1,20 @@
 # *Steps you would follow with a justification*
 
-### **1. Collect a Diverse Set of Images**
+### *1. Collect a Diverse Set of Images*
 
 **Justification:**  
 To build a reliable skin color model, you need diverse skin tones, lighting conditions, and backgrounds. A varied dataset ensures that your model generalizes well and isn't biased toward specific individuals or scenes.
 
 ---
 
-### **2. Annotate the Skin Regions in Each Image**
+### *2. Annotate the Skin Regions in Each Image*
 
 **Justification:**  
 Manual annotation (e.g., marking skin areas like face and arms) provides **ground truth labels**. This labeled data is essential for training the model to distinguish skin from non-skin pixels. Without accurate annotations, your model cannot learn effectively.
 
 ---
 
-### **3. Convert RGB to Chromaticity Coordinates (x, y)**
+### *3. Convert RGB to Chromaticity Coordinates (x, y)*
 
 **Justification:**  
 Chromaticity coordinates remove the influence of overall brightness by normalizing RGB values. Skin detection benefits from chromaticity because **skin tones differ in color but not much in luminance**. This transformation helps focus on color information alone.
@@ -23,63 +23,63 @@ Chromaticity coordinates remove the influence of overall brightness by normalizi
 
 ---
 
-### **4. Extract Chromaticity Values of Annotated Skin Pixels**
+### *4. Extract Chromaticity Values of Annotated Skin Pixels*
 
 **Justification:**  
 You only want to model the distribution of skin pixels. Extracting chromaticity from these ensures that your statistical model accurately represents skin color in this reduced space.
 
 ---
 
-### **5. Compute Statistical Model (Mean & Covariance)**
+### *5. Compute Statistical Model (Mean & Covariance)*
 
 **Justification:**  
 Skin color in chromaticity space often clusters well and can be modeled as a **Gaussian distribution**. The mean represents the “center” of typical skin colors, and the covariance captures the variance and shape of the distribution.
 
 ---
 
-### **6. (Optional) Model the Background (Non-Skin Pixels)**
+### *6. (Optional) Model the Background (Non-Skin Pixels)*
 
 **Justification:**  
 Including a model of the background can help distinguish ambiguous pixels. This is useful if you apply **Bayesian classification** or if you want to compare how “skin-like” a pixel is versus how “background-like” it is.
 
 ---
 
-### **7. Classify Skin Pixels in New Images Using Mahalanobis Distance**
+### *7. Classify Skin Pixels in New Images Using Mahalanobis Distance*
 
 **Justification:**  
 Mahalanobis distance accounts for the shape of the distribution, making it better than Euclidean distance when using multivariate Gaussian models. It allows you to assess how “typical” a new pixel's color is for skin.
 
 ---
 
-### **8. Generate and Visualize Skin Masks**
+### *8. Generate and Visualize Skin Masks*
 
 **Justification:**  
 Masking skin regions in an image allows visual inspection of how well your model is performing. Visual feedback is crucial for debugging, tuning thresholds, and validating that your skin detector works as expected.
 
 ---
 
-### **9. Evaluate Robustness to Lighting Conditions**
+### *9. Evaluate Robustness to Lighting Conditions*
 
 **Justification:**  
 Lighting affects perceived color. You must test your model under different lighting to understand **how sensitive chromaticity is** to illumination and whether preprocessing (e.g., white balance correction) might be necessary.
 
 ---
 
-### **10. Compare Against Simpler Models (e.g., Color Ratios)**
+### *10. Compare Against Simpler Models (e.g., Color Ratios)*
 
 **Justification:**  
 Simpler models (like red-to-green ratio) are computationally cheaper and easier to implement. Comparing performance helps you determine whether complex models are **worth the additional effort** or if simpler alternatives suffice.
 
 ---
 
-### **11. Quantitatively Evaluate Model Performance**
+### *11. Quantitatively Evaluate Model Performance*
 
 **Justification:**  
 To objectively assess your model, calculate precision, recall, accuracy, etc., using your manually labeled masks. This helps validate your work scientifically and ensures your detector is not just subjectively good but statistically sound.
 
 ---
 
-### **12. Document Observations and Reflect on Improvements**
+### *12. Document Observations and Reflect on Improvements*
 
 **Justification:**  
 Critical reflection is part of scientific research and development. By documenting limitations, ideas for improvement, and insights into your results, you show a deep understanding of the topic, which is essential for academic and practical purposes.
