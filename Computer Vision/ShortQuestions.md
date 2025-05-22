@@ -28,6 +28,35 @@
 
 #### Challenges in selecting a clustering algorithm
 
+- **How to define a cluster?**  
+    Clusters can be defined based on density, distance, or statistical similarity—choosing the wrong definition may lead to meaningless groupings.
+    
+- **What features should be used?**  
+    Irrelevant or highly correlated features can mislead clustering algorithms, so careful feature selection or dimensionality reduction is essential.
+    
+- **Should the data be normalized?**  
+    Differences in scale can distort distance measures; normalization is often required for algorithms like K-Means.
+    
+- **Does the data contain any outliers?**  
+    Outliers can heavily affect centroid-based methods, leading to inaccurate clusters.
+    
+- **How do we define the pair-wise similarity?**  
+    The choice of distance metric (e.g., Euclidean, cosine) significantly influences cluster formation and must align with the data type.
+    
+- **How many clusters are present in the data?**  
+    Most algorithms require this as input (e.g., K in K-Means), but the true number is often unknown and must be estimated.
+    
+- **Which clustering method should be used?**  
+    The choice depends on data shape, scale, and distribution—no one method fits all scenarios.
+    
+- **Does the data have any clustering tendency?**  
+    Some datasets may not contain any meaningful clusters; using clustering in such cases can lead to misleading results.
+    
+- **Are the discovered clusters and partition valid?**  
+    Cluster validation is non-trivial and often requires internal, external, or visual validation techniques to assess quality.
+
+---
+
 - **No Universal Best:** Optimal choice depends on data/problem.
 - **Optimal K (Number of Clusters):** Often unknown, hard to determine.
 - **Data Assumptions:** Algorithms assume specific cluster shapes, densities, or scales.
@@ -38,7 +67,8 @@
 - **Core Measure:** Quantifies how "similar" or "dissimilar" two data points are.
 - **Forms Clusters:** Algorithms group points with smaller distances (higher similarity).
 - **Impacts Cluster Shape:** Different distance metrics (Euclidean, Manhattan, Cosine) lead to different cluster geometries.
-    
+
+
 
 #### Use of distance as a similarity measure
 
@@ -510,3 +540,249 @@ This **multi-scale approach** overcomes the small-motion limitation of basic dif
 
 **In short:**  
 Use a **coarse-to-fine pyramidal scheme** to estimate optical flow for both small and large motions.
+
+
+### Question 5
+
+
+## 1. Driver Alertness Monitoring System
+
+**Goal:** Detect driver drowsiness and alert when sleepiness is imminent.
+
+### Components
+
+- **Video Capture:** Camera focused on driver’s face.
+- **Face and Eye Detection:** Use Haar cascades or SIFT/Harris features with classifiers to detect face and eyes.
+- **Eye State Analysis:** Detect eye openness using skin color detection and thresholding or simple feature descriptors.
+- **Blink Rate and Eye Closure Duration Estimation:** Track eye closure over time.
+- **Alert Module:** Trigger alarm if eyes remain closed beyond threshold.
+
+
+### Algorithm Outline
+
+1. Capture video frames continuously.
+2. Detect face region using Haar cascades or feature matching.
+3. Detect eyes within face using skin color segmentation and corner detection.
+4. Analyze eye state (open/closed) by thresholding eye region intensity or texture features.
+5. Calculate blink rate and duration of eye closure.
+6. If eye closure duration exceeds predefined threshold, trigger alert.
+
+### Assumptions
+
+- Good lighting conditions in the vehicle cabin.
+- Camera positioned to capture driver’s face clearly.
+- Basic image processing techniques (filters, thresholding) are available.
+
+---
+
+## 2. Automatic Speed Limit Sign Recognition System
+
+**Goal:** Detect and read speed limit signs from a moving vehicle.
+
+### Components
+
+- **Video Capture:** Forward-facing camera.
+- **Sign Detection:** Use color segmentation (red circle) and shape detection (circle detection via Hough transform).
+- **Character Recognition:** Extract digits inside the sign using SIFT features and SVM classifier trained on digit images.
+- **Speed Limit Display:** Overlay recognized speed limit on the dashboard.
+
+
+### Algorithm Outline
+
+1. Capture video frames.
+2. Apply color thresholding to detect red circular regions.
+3. Use shape detection to confirm circular signs.
+4. Extract sign region and preprocess (grayscale, resize).
+5. Detect keypoints using SIFT; extract descriptors.
+6. Classify digits inside sign using trained SVM on SIFT descriptors.
+7. Display recognized speed limit.
+
+### Assumptions
+
+- Signs are visible and not occluded.
+- Pretrained SVM classifier for digits is available.
+- Reasonable lighting conditions.
+
+---
+
+## 3. Automated Office Assistant Robot Vision System
+
+**Goal:** Navigate office environment, recognize voice command location, and avoid obstacles.
+
+### Components
+
+- **Voice Command Localization:** Microphone array or fixed location assumed.
+- **Obstacle Detection:** Use motion detection (frame differencing or optical flow) and depth sensing (if available).
+- **Path Planning:** Use k-means clustering to segment free space and obstacles.
+- **Navigation:** Track features with SIFT/Harris for localization.
+
+
+### Algorithm Outline
+
+1. Receive voice command from fixed location.
+2. Use camera to scan environment; detect obstacles via background subtraction.
+3. Segment scene using k-means clustering to identify free paths.
+4. Track environment features with SIFT for localization.
+5. Plan path avoiding obstacles and move to target.
+
+### Assumptions
+
+- Voice command location is known.
+- Environment is reasonably static.
+- Robot has basic movement control.
+
+---
+
+## 4. Automatic Product Identification on Scale
+
+**Goal:** Identify fruits/vegetables placed on scale automatically.
+
+### Components
+
+- **Image Capture:** Camera above scale.
+- **Product Segmentation:** Use color-based skin detection adapted for fruit/vegetable colors.
+- **Feature Extraction:** Extract SIFT features from segmented product.
+- **Classification:** Use SVM trained on product features.
+- **Weight Measurement:** Scale sensor input.
+
+
+### Algorithm Outline
+
+1. Capture image of product on scale.
+2. Segment product using color thresholding (similar to skin detection).
+3. Extract keypoints and descriptors using SIFT.
+4. Classify product type using trained SVM classifier.
+5. Combine product ID with weight from scale.
+
+### Assumptions
+
+- Products are visually distinct.
+- Pretrained SVM model available.
+- Controlled lighting on scale.
+
+---
+
+## 5. Adaptive Headlight Control System
+
+**Goal:** Adjust vehicle headlights to illuminate road curves.
+
+### Components
+
+- **Video Capture:** Forward-facing camera.
+- **Road Curve Detection:** Use optical flow or lane detection via edge detection and Hough transform.
+- **Curve Angle Estimation:** Calculate steering angle from lane curvature.
+- **Headlight Control:** Adjust headlight direction based on curve angle.
+
+
+### Algorithm Outline
+
+1. Capture video frames.
+2. Detect lane markings using edge detection and Hough transform.
+3. Estimate road curvature and steering angle.
+4. Use optical flow to confirm motion direction.
+5. Adjust headlight angle proportionally to curve angle.
+
+### Assumptions
+
+- Lane markings are visible.
+- Vehicle speed and steering angle sensors available for integration.
+- Basic image filtering and edge detection available.
+
+---
+
+## 6. Pedestrian Collision Warning System
+
+**Goal:** Warn driver of potential pedestrian collisions day/night and in poor weather.
+
+### Components
+
+- **Video Capture:** Infrared and visible spectrum cameras (if available).
+- **Pedestrian Detection:** Use SIFT features and SVM classifier trained on pedestrian images.
+- **Motion Detection:** Optical flow to detect moving objects.
+- **Distance Estimation:** Use size and position in frame.
+- **Warning Module:** Alert driver when pedestrian is too close.
+
+
+### Algorithm Outline
+
+1. Capture frames from visible and infrared cameras.
+2. Detect pedestrians using SIFT feature extraction and SVM classification.
+3. Track detected pedestrians using optical flow.
+4. Estimate distance using bounding box size or stereo vision (if available).
+5. If pedestrian within danger zone, trigger warning.
+
+### Assumptions
+
+- Availability of infrared camera improves night detection.
+- Pretrained pedestrian SVM classifier available.
+- Moderate occlusion and weather conditions.
+
+---
+
+## 7. Automatic Face Photo Sorting
+
+**Goal:** Find photos containing unoccluded frontal faces of a specific person.
+
+### Components
+
+- **Face Detection:** Use Haar cascades or skin color segmentation combined with Harris corner detection.
+- **Face Recognition:** Use SIFT descriptors matched against reference images of the person.
+- **Occlusion Handling:** Discard faces with insufficient feature matches.
+
+
+### Algorithm Outline
+
+1. For each photo, detect faces using Haar cascades or skin color segmentation.
+2. Extract SIFT features from detected faces.
+3. Match features with reference images of the person using descriptor matching.
+4. If sufficient matches found and face is frontal (based on feature distribution), include photo in subset.
+
+### Assumptions
+
+- Reference images of the person are available.
+- Faces are mostly frontal and well-lit.
+- Occlusions reduce feature matches below threshold.
+
+---
+
+## 8. Simple Skin Color Detector
+
+### Steps and Justifications
+
+1. **Collect Diverse Images:** To cover various skin tones and lighting conditions.
+2. **Convert to Chromaticity Space:** Normalize RGB to remove intensity effects.
+3. **Label Skin Pixels:** Manually mark skin regions to build color distribution.
+4. **Model Skin Color Distribution:** Use Gaussian model or mean and covariance.
+5. **Classify Pixels:** Use Mahalanobis distance or thresholding to detect skin.
+6. **Post-processing:** Morphological operations to clean up detection.
+
+### Sensitivity to Color Balance
+
+- The algorithm is sensitive to lighting changes because chromaticity depends on scene illumination.
+- Adaptive thresholding or illumination normalization can improve robustness.
+- Simpler color ratios work but less accurate than full statistical models.
+
+---
+
+## 9. Hybrid Image Generation
+
+### Steps to Obtain Hybrid Images
+
+1. **Select and Align Images:** Choose two images with similar content and align key features.
+2. **Apply Low-Pass Filter:** Blur one image using Gaussian filter to extract low frequencies.
+3. **Apply High-Pass Filter:** Subtract blurred version from original on second image to get high frequencies.
+4. **Combine Images:** Add low-frequency and high-frequency images to create hybrid.
+5. **Adjust Weights:** Tune contribution of each image for best perceptual effect.
+
+### Applications
+
+- **Face Expression Change:** Create images that change expression with viewing distance.
+- **Scene Configuration Display:** Show two different scenes in one image depending on distance.
+- **Texture Display:** Present textures that appear or disappear based on viewing distance.
+
+---
+
+This outline uses methods and algorithms covered in your course, leveraging image filtering, feature detection (SIFT, Harris), machine learning (SVM, k-means), and motion analysis (optical flow, frame differencing). Each system is designed with practical assumptions and straightforward steps suitable for implementation with your current knowledge.
+
+
+
